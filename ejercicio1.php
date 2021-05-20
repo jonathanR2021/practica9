@@ -1,3 +1,7 @@
+<?php
+require_once("funsiones.php");
+$obj=new clsf();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -52,10 +56,8 @@
                 if (isset($_POST["calcular"])) {
                     echo "<h1>RESULTADO</h1>";
                     $um = $_POST["um"];
-                    define("PI", 3.1416);
-                    $radio = $_POST["radio"];
-                    $area = sprintf('%.2f', (PI * $radio * $radio));
-                    echo "<h1 id='pa2'>El area del circulo es de <u> $area $um &#178 </u></h1>";
+                    $result= $obj->rad($_POST["radio"]);
+                    echo "<h1 id='pa2'>El area del circulo es de <u>$result $um &#178 </u></h1>";
                 } else {
                     echo "<h1 align='center'>BIENVENIDO</h1>";
                 }

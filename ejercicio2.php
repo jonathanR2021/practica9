@@ -1,3 +1,7 @@
+<?php
+require_once("funsiones.php");
+$obj=new clsf();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -77,11 +81,11 @@
                     $nparcial3 = $_POST["nparcial3"];
                     $notaexam = $_POST["notaexam"];
                     $notatrab = $_POST["notatrab"];
-                    $promediop1 = sprintf('%.2f', ($nparcial1 * 0.183333));
-                    $promediop2 = sprintf('%.2f', ($nparcial2 * 0.183333));
-                    $promediop3 = sprintf('%.2f', ($nparcial3 * 0.183333));
-                    $promedioexam = sprintf('%.2f', ($notaexam * 0.30));
-                    $promediotrab = sprintf('%.2f', ($notatrab * 0.15));
+                    $promediop1= $obj->promedio($_POST["nparcial1"],0.183333);
+                    $promediop2= $obj->promedio($_POST["nparcial2"],0.183333);
+                    $promediop3= $obj->promedio($_POST["nparcial3"],0.183333);
+                    $promedioexam= $obj->promedio($_POST["notaexam"],0.30);
+                    $promediotrab= $obj->promedio($_POST["notatrab"],0.15);
                     $promediototal = round($promediop1 + $promediop2 + $promediop3 + $promedioexam + $promediotrab);
                     echo "<table border='1px' id='ta4'>";
                     echo "<tr>";
